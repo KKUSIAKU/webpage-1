@@ -1,6 +1,17 @@
 import React from "react";
 import Brand from "../Brand";
-import NavigationBar from "../Navigation"; 
+import Navigation from "../Navigation";
+
+const headerLinks = [
+  { href: "#", label: "HOME" },
+  { href: "#courses", label: "CATALOG" },
+  { href: "#mycourses", label: "MY PURCHASES" },
+  { href: "#sign-in", label: "LOG IN" },
+  { href: "#sign-up", label: "SIGN UP" },
+];
+const headerMenuId = "nav-header";
+
+const headerToggeable = true;
 
 const Header = () => (
   <header className="page-header navbar-light bg-light fixed-top">
@@ -11,13 +22,10 @@ const Header = () => (
             <Brand />
           </div>
           <div className="menu-container col-6 menu-border">
-            <NavigationBar links = {[
-              {href:"#", label:"HOME"}, 
-              {href:"#courses", label:"CATALOG"},
-              {href:"#mycourses", label:"MY PURCHASES"},  
-              {href:"#sign-in", label:"LOG IN"}, 
-              {href:"#sign-up", label:"SIGN UP"}, 
-            ]}/>
+            <Navigation
+              menuId={headerMenuId}
+              toggleable={headerToggeable}
+              links={headerLinks} />
           </div>
         </div>
       </div>

@@ -1,6 +1,16 @@
 import React from "react";
 import Brand from "../Brand";
-import NavigationBar from "../Navigation"; 
+import Navigation from "../Navigation"; 
+
+const footerLinks = [
+  {href:"#", label:"About Us"}, 
+  {href:"#courses", label:"Terms of use"},
+  {href:"#mycourses", label:"Policy"},  
+  {href:"#sign-in", label:"Contact Us"}
+]; 
+const footerMenuId = "nav-footer"; 
+
+const footerToggeable = false; 
 
 const Footer = () => (
   <footer className="page-footer">
@@ -11,12 +21,10 @@ const Footer = () => (
             <Brand />
           </div>
           <div className="menu-container col-6 menu-border">
-            <NavigationBar links = {[
-              {href:"#", label:"About Us"}, 
-              {href:"#courses", label:"Terms of use"},
-              {href:"#mycourses", label:"Policy"},  
-              {href:"#sign-in", label:"Contact Us"}
-            ]}/>
+            <Navigation
+              menuId={footerMenuId}
+              toggleable = {footerToggeable}
+              links = {footerLinks}/>
           </div>
         </div>
       </div>
