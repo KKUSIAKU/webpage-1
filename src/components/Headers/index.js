@@ -2,6 +2,8 @@ import React from "react";
 import Brand from "../Brand";
 import Navigation from "../Navigation";
 
+const justifyConent = "end"; // use to set up bootstrap justify-content class 
+
 const headerLinks = [
   { href: "#", label: "HOME" },
   { href: "#courses", label: "CATALOG" },
@@ -25,7 +27,8 @@ const Header = () => (
             <Navigation
               menuId={headerMenuId}
               toggleable={headerToggeable}
-              links={headerLinks} />
+              links={headerLinks}
+              justify={justifyConent} />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { Navigation } from "../components";
+import { Navigation } from "../../components";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -28,7 +28,7 @@ describe("Navigation component testing", function testNavigation() {
       menuId={id}
       toggleable={false}
       links={[
-        { href:"home", label:"home"},
+        {href:"home", label:"home"},
         {href:"about", lable:"about"}
       ]}
     />);

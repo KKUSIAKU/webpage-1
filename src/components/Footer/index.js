@@ -1,6 +1,9 @@
 import React from "react";
 import Brand from "../Brand";
 import Navigation from "../Navigation"; 
+import style from "./style.scss";
+
+const justifyContent = "center";
 
 const footerLinks = [
   {href:"#", label:"About Us"}, 
@@ -8,7 +11,7 @@ const footerLinks = [
   {href:"#mycourses", label:"Policy"},  
   {href:"#sign-in", label:"Contact Us"}
 ]; 
-const footerMenuId = "nav-footer"; 
+const footerMenuId = "footer"; // Navigation component prefix this with nav- when building the component
 
 const footerToggeable = false; 
 
@@ -17,14 +20,15 @@ const Footer = () => (
     <div id="page-footer-container">
       <div className="container-fluid">
         <div className="row row-border justify-content-between">
-          <div className="brand-container col-2 menu-border">
+          <div className="brand-container col-lg-2 menu-border">
             <Brand />
           </div>
-          <div className="menu-container col-6 menu-border">
+          <div className="menu-container col-lg-6 menu-border">
             <Navigation
               menuId={footerMenuId}
               toggleable = {footerToggeable}
-              links = {footerLinks}/>
+              links = {footerLinks}
+              justify={justifyContent}/>
           </div>
         </div>
       </div>
