@@ -20,10 +20,10 @@ const Header = () => (
     <div id="page-header-container">
       <div className="container-fluid">
         <div className="row row-border justify-content-between">
-          <div className="brand-container col-2 menu-border">
+          <div className="brand-container col-6 col-md-2 menu-border">
             <Brand />
           </div>
-          <div className="menu-container col-6 menu-border">
+          <div className="menu-container col-5 col-md-6 menu-border">
             <Navigation
               menuId={headerMenuId}
               toggleable={headerToggeable}
