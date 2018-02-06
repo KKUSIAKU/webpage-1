@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import invariant from "invariant";
 import ToggleButton from "../ToggleButton";
 
 // Bootstrap justify-content registry
@@ -25,9 +26,9 @@ const createLinkItem = (link, key) => {
 
 // justify props: see justifyContent variable above 
 const NavigationLinks = ({ links, justify }) => {
-  let align =""; 
+  let align = "";
 
-  if(justify in justifyContent){
+  if (justify in justifyContent) {
     align = justifyContent[justify];
   }
 
@@ -39,25 +40,35 @@ const NavigationLinks = ({ links, justify }) => {
 };
 
 // .flex-row set flex-direction to row. It is redundand with navbar-expand-md but this on is present only from medium size device
-const Navigation = ({ links, toggleable, menuId, justify }) => (
-  <nav id={`nav-${menuId}`} className="navbar navbar-expand-md ">
-    <p></p>
-    {toggleable && <ToggleButton targetId={menuId} />}
-    <div className={toggleable ? "collapse navbar-collapse" : ""} id={`${menuId}`}>
-      <NavigationLinks links={links} justify ={justify} />
-    </div>
-  </nav>
-);
+const Navigation = (props) => {
+  var { links, toggleable, menuId, justify, children } = props; 
+
+  invariant(
+    React.Children.count(children) == 0, 
+    "Navigation may not have any child component"
+  ); 
+
+  return (
+    <nav id={`nav-${menuId}`} className="navbar navbar-expand-md ">
+      <p></p>
+      {toggleable && <ToggleButton targetId={menuId}/>}
+      <div className={toggleable ? "collapse navbar-collapse" : ""} id={`${menuId}`}>
+        <NavigationLinks links={links} justify={justify}/>
+      </div>
+    </nav>
+  );
+} ;
+
 
 Navigation.defaultProps = {
   toggleable: true,
 },
 
-  Navigation.propTypes = {
-    links: PropTypes.arrayOf(Object).isRequired,
-    menuId: PropTypes.string.isRequired,
-    toggleable: PropTypes.bool,
-  };
+Navigation.propTypes = {
+  links: PropTypes.arrayOf(Object).isRequired,
+  menuId: PropTypes.string.isRequired,
+  toggleable: PropTypes.bool,
+};
 
 
 export default Navigation;

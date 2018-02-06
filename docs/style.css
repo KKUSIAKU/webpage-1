@@ -1,0 +1,18 @@
+#nav-footer {
+  min-width: 80%;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important; }
+  #nav-footer #footer {
+    min-width: 80%;
+    text-align: center; }
+    #nav-footer #footer .nav-link {
+      min-width: 100px; }
+.menu-container {
+  /* display: flex; 
+  justify-content: center;
+  align-items: center;*/ }
+body {
+  padding-top: 5rem; }
+
+/*# sourceMappingURL=style.css.map*/

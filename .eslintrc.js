@@ -4,6 +4,10 @@ module.exports = {
       "es6": true,
       "node": true,
       "jest":true,
+
+  },
+  "globals":{
+      "spyOn":true,
   },
   "extends": "eslint:recommended",
   "parserOptions": {

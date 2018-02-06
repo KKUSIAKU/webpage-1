@@ -5,15 +5,15 @@ import { Navigation } from "../../components";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("Navigation component testing", function testNavigation() {
-  
+describe("A <Navigation/> testing", function testNavigation() {
+
   it("should render toggle button when toggeable property is not set false", function () {
-    const id = "menu"; 
+    const id = "menu";
     const Menu = shallow(<Navigation
       menuId={id}
       links={[
-        { href:"home", label:"home"},
-        {href:"about", lable:"about"}
+        { href: "home", label: "home" },
+        { href: "about", lable: "about" }
       ]}
     />);
     const MenuChildren = Menu.children();
@@ -23,13 +23,13 @@ describe("Navigation component testing", function testNavigation() {
   });
 
   it("should not render toggle button when toggeable property is set false", function () {
-    const id = "menu"; 
+    const id = "menu";
     const Menu = shallow(<Navigation
       menuId={id}
       toggleable={false}
       links={[
-        {href:"home", label:"home"},
-        {href:"about", lable:"about"}
+        { href: "home", label: "home" },
+        { href: "about", lable: "about" }
       ]}
     />);
     const MenuChildren = Menu.children();
@@ -39,5 +39,22 @@ describe("Navigation component testing", function testNavigation() {
     expect(Menu.find(".navbar-collapse").length).toBe(0);
   });
 
+  it("should throws error when pass a children compoent", () => {
 
+    let id = "menu";
+
+    spyOn(console, "error");
+
+    expect(shallow(<Navigation
+      menuId={id}
+      toggleable={false}
+      links={[
+        { href: "home", label: "home" },
+        { href: "about", lable: "about" }
+      ]}
+    >
+      <div></div>
+    </Navigation>
+    )).toThrow("/Navigation may not have any child component/");
+  });
 });
