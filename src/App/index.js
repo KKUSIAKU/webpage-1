@@ -1,13 +1,17 @@
 import React from "react";
-import { Header, Footer,Main } from "../components";
+import { Provider } from "react-redux";
+import store from "../state/store.js";
+import { Header, Footer, Main } from "../components";
 import style from "./style.scss";
 
 const App = () => (
-  <div id="app-container">
-    <Header/>
-    <Main/>
-    <Footer/>
-  </div>
+  <Provider store={store}>
+    <div id="app-container">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  </Provider>
 );
 
 export default App; 
