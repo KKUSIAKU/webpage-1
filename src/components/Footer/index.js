@@ -11,7 +11,7 @@ const footerLinks = [
   {href:"#mycourses", label:"Policy"},  
   {href:"#sign-in", label:"Contact Us"}
 ]; 
-const footerMenuId = "footer"; // Navigation component prefix this with nav- when building the component
+const footerMenuId = "footer"; 
 
 const footerToggeable = false; 
 

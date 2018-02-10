@@ -8,6 +8,7 @@ module.exports = {
   },
   "globals":{
       "spyOn":true,
+      "React":true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
