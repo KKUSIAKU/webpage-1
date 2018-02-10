@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import style from "./style.scss";
 
-
 const defaultSrc = "../../public/images/defaultArticleImage.png";
 const defaultAlt = "poster image not available";
 const ArticleCard = ({
