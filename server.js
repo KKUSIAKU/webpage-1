@@ -4,7 +4,10 @@ var app = express();
 
 app.set("port", (process.env.PORT || 5000));
 
-app.use(express.static(__dirname +"/docs"));
+app.set("views", "./docs");
+app.set("view engine", "react");
+
+require("./api")(app); 
 
 app.listen(app.get("port"), function () {
   if (process.env.NODE_ENV !== "production") {
