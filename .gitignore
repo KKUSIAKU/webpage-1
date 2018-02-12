@@ -4,5 +4,5 @@ checker.js
 eslint.note.txt
 jest.note.txt
 grunt.note.txt
-src/cconfig.js
+api/cconfig.js
 
