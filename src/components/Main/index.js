@@ -7,8 +7,7 @@ import ArticleCard from "../ArticleCard";
 import style from "./style.scss";
 
 
-const Main = ({ MOVIES, fetchMovies }) => {
-  fetchMovies();
+const Main = ({ MOVIES}) => {
   return (
     <main className="d-flex flex-wrap justify-content-center">
       {MOVIES.map((movie, index) =>

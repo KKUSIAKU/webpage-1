@@ -1,12 +1,18 @@
 
 function rootReducer(state={}, action){
-
-  if(action.type =="GET-MOVIES"){
-    console.log("action catch up"); 
-
-    return state; 
+  switch(action.type){
+    case "REQUEST-MOVIES":
+      console.log("request sent to the server"); 
+      return state; 
+    case "RECEIVE-MOVIES":
+      console.log("received movies data");
+      return state; 
+    case "REQUEST-MOVIES-FAILED":
+      console.log("movies request failed"); 
+      return state; 
+    default:
+      return state; 
   }
-  return state; 
 }
 
 export default rootReducer; 
