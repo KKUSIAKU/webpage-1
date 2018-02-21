@@ -10,6 +10,12 @@ const MOVIES = [
     alt:"none",
   },
   {
+    articleId:"move1",
+    title:"An American Tail: Fievel Goes West",
+    year:1991,
+    alt:"none",
+  },
+  {
     articleId:"move2",
     title:"An American Tail: Fievel Goes West",
     year:1991,

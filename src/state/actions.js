@@ -4,6 +4,13 @@ function requestMovies() {
   };
 }
 
+function receiveMovies(data){
+  return {
+    type:"RECEIVE-MOVIES", 
+    data
+  };
+}
+
 
 
 export function fetchAllMovies(url) {
@@ -13,18 +20,14 @@ export function fetchAllMovies(url) {
     dispatch(requestMovies());
 
     httpRequest.onreadystatechange = function () {
-
       switch (httpRequest.readyState) {
         case XMLHttpRequest.UNSENT:
-          console.log("request not sent yet");
           break; 
         case XMLHttpRequest.LOADING:
-          console.log("receiving some data");
           break;
         case XMLHttpRequest.DONE:
-          console.log("loading finished");
-          console.log(httpRequest.responseText);
-
+          var movies = JSON.parse(httpRequest.response);
+          dispatch(receiveMovies(movies));
       }
     };
 

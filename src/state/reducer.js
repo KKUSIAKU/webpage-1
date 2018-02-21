@@ -6,7 +6,7 @@ function rootReducer(state={}, action){
       return state; 
     case "RECEIVE-MOVIES":
       console.log("received movies data");
-      return state; 
+      return Object.assign({}, state, {MOVIES:action.data}); 
     case "REQUEST-MOVIES-FAILED":
       console.log("movies request failed"); 
       return state; 
