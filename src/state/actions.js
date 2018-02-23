@@ -12,7 +12,7 @@ function receiveMovies(data,page){
   };
 }
 
-export function fetchAllMovies(url, page) {
+export function fetchAllMovies(url, options) {
   return function (dispatch) {
     var httpRequest = new XMLHttpRequest();
 
@@ -26,12 +26,16 @@ export function fetchAllMovies(url, page) {
           break;
         case XMLHttpRequest.DONE:
           var movies = JSON.parse(httpRequest.response);
-          dispatch(receiveMovies(movies,page));
+          dispatch(receiveMovies(movies,options.page));
       }
     };
 
+    url +=`?page=${options.page}`;// need checking
+
     httpRequest.open("GET", url, true);
-    httpRequest.send();
+    httpRequest.setRequestHeader("Accept", "json"); 
+    httpRequest.setRequestHeader("Content-Type", "application/json"); 
+    httpRequest.send(null);
 
   };
 }

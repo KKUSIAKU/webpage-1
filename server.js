@@ -2,8 +2,12 @@ var express = require("express");
 var dbConfig = require("./db.config.js");
 var assert = require("assert");
 var MongoClient = require("mongodb").MongoClient;
+var bodyParser = require("body-parser"); 
 
 var app = express();
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended:true}));
+
 
 app.set("port", (process.env.PORT || 5000));
 
