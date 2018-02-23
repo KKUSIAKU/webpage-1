@@ -4,14 +4,17 @@ import { connect } from "react-redux";
 
 import * as  actions from "../../state/actions.js";
 
+const url = "/videos";
+
 class PageButton extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    let page = parseInt(this.props.page);
     return (
-      <button onClick={this.props.fetchAllMovies.bind(null)}>{this.props.page}</button>
+      <button onClick={this.props.fetchAllMovies.bind(null, url, {page:page-1})}>{page}</button>
     );
   }
 }
