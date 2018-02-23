@@ -15,7 +15,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllMovies.bind(null, url,0)();
+    this.props.fetchAllMovies.bind(null, url,{page:0})();
   }
 
   render() {
