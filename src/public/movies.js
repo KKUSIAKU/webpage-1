@@ -523,28 +523,6 @@ const MOVIES = {
       alt: "none",
     },
     {
-      articleId: "move2",
-      title: "An American Tail: Fievel Goes West",
-      year: 1991,
-      src: "http://ia.media-imdb.com/images/M/MV5BMTYzODMxNTUyNF5BMl5BanBnXkFtZTcwMTAwMzQyMQ@@._V1_SX300.jpg",
-      alt: "none",
-    },
-    {
-      articleId: "move3",
-      title: "An American Tail: Fievel Goes West",
-      year: 1991,
-      src: "http://ia.media-imdb.com/images/M/MV5BMTYzODMxNTUyNF5BMl5BanBnXkFtZTcwMTAwMzQyMQ@@._V1_SX300.jpg",
-      alt: "none",
-    },
-  
-    {
-      articleId: "move3",
-      title: "An American Tail: Fievel Goes West",
-      year: 1991,
-      src: "http://ia.media-imdb.com/images/M/MV5BMTYzODMxNTUyNF5BMl5BanBnXkFtZTcwMTAwMzQyMQ@@._V1_SX300.jpg",
-      alt: "none",
-    },
-    {
       articleId: "move1",
       title: "An American Tail: Fievel Goes West",
       year: 1991,

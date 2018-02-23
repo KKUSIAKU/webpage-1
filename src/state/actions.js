@@ -1,3 +1,12 @@
+import store from "./store.js";
+
+function setPage(page){
+  return {
+    type:"SET-PAGE", 
+    page
+  };
+}
+
 function requestMovies() {
   return {
     type: "REQUEST-MOVIES",
@@ -13,6 +22,13 @@ function receiveMovies(data,page){
 }
 
 export function fetchAllMovies(url, options) {
+  var {movies} = store.getState(); 
+  
+  if (movies.hasOwnProperty(options.page)){
+    return store.dispatch(setPage(options.page));
+  }
+  console.log("start fetching");
+
   return function (dispatch) {
     var httpRequest = new XMLHttpRequest();
 

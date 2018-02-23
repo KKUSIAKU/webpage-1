@@ -19,11 +19,14 @@ class Main extends React.Component {
   }
 
   render() {
-    let movies = this.props.movies[this.props.page];
+    let movies = this.props.movies[this.props.page],ln;
+    
+    movies = movies ? movies : [];
+    ln = movies.length; 
 
     return (
       <main>
-        <p className="text-info px-5">{`${movies.length} results`} </p>
+        <p className="text-info px-5">{`${ln} results`} </p>
         <div className="d-flex flex-wrap justify-content-center">
           {movies.map((movie, index) =>
             <div className="articleItem card border-secondary m-1 p-2" key={index}>
