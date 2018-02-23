@@ -4,16 +4,15 @@ function requestMovies() {
   };
 }
 
-function receiveMovies(data){
+function receiveMovies(data,page){
   return {
     type:"RECEIVE-MOVIES", 
-    data
+    data,
+    page
   };
 }
 
-
-
-export function fetchAllMovies(url) {
+export function fetchAllMovies(url, page) {
   return function (dispatch) {
     var httpRequest = new XMLHttpRequest();
 
@@ -27,13 +26,22 @@ export function fetchAllMovies(url) {
           break;
         case XMLHttpRequest.DONE:
           var movies = JSON.parse(httpRequest.response);
-          dispatch(receiveMovies(movies));
+          dispatch(receiveMovies(movies,page));
       }
     };
 
     httpRequest.open("GET", url, true);
     httpRequest.send();
 
+  };
+}
+
+
+export function setPage(page){
+  // page is a positive number
+  return {
+    type:"SET-PAGE", 
+    page
   };
 }
 

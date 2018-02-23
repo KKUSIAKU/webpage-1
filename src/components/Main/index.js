@@ -1,33 +1,13 @@
 import React from "react";
 import { bindActionCreators } from "redux";
-
 import { connect } from "react-redux";
+
 import * as  actions from "../../state/actions.js";
 import ArticleCard from "../ArticleCard";
+import PageButton from "../PageButton";
 import style from "./style.scss";
 
-import store from "../../state/store.js";
-import { fetchAllMovies } from "../../state/actions.js";
 const url = "/videos";
-
-function fetch() {
-  store.dispatch(fetchAllMovies(url));
-}
-
-
-/*const Main = ({ MOVIES, fetchAllMovies }) => {
-  return (
-    <main className="d-flex flex-wrap justify-content-center"
-      onClick={fetchAllMovies.bind(null,url )}>
-      <p>{`${MOVIES.length} results`} </p>
-      {MOVIES.map((movie, index) =>
-        <div className="articleItem m-3" key={index}>
-          <ArticleCard {...movie} />
-        </div>)
-      }
-    </main>
-  );
-};*/
 
 class Main extends React.Component {
   constructor(props) {
@@ -35,20 +15,26 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllMovies.bind(null, url)();
+    this.props.fetchAllMovies.bind(null, url,0)();
   }
 
   render() {
-    let { MOVIES } = this.props;
+    let movies = this.props.movies[this.props.page];
+
     return (
       <main>
-        <p className="text-info px-5">{`${MOVIES.length} results`} </p>
+        <p className="text-info px-5">{`${movies.length} results`} </p>
         <div className="d-flex flex-wrap justify-content-center">
-          {MOVIES.map((movie, index) =>
+          {movies.map((movie, index) =>
             <div className="articleItem card border-secondary m-1 p-2" key={index}>
               <ArticleCard {...movie} />
             </div>)
           }
+        </div>
+        <div className="search-pages">
+          <PageButton page={1}/>
+          <PageButton page={2}/>
+          <PageButton page={3}/>
         </div>
       </main>
     );
@@ -57,9 +43,10 @@ class Main extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  let MOVIES = state.MOVIES;
+  let {movies, page} = state; 
   return {
-    MOVIES
+    page,
+    movies,
   };
 };
 
