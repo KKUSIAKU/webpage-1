@@ -7,6 +7,13 @@ function setPage(page){
   };
 }
 
+function setNumberOfResult(numberOfResult){
+  return {
+    type:"GET-NUMBER-OF-RESULT", 
+    numberOfResult
+  };
+}
+
 function requestMovies() {
   return {
     type: "REQUEST-MOVIES",
@@ -35,14 +42,16 @@ export function fetchAllMovies(url, options) {
     dispatch(requestMovies());
 
     httpRequest.onreadystatechange = function () {
+      var result;
       switch (httpRequest.readyState) {
         case XMLHttpRequest.UNSENT:
           break; 
         case XMLHttpRequest.LOADING:
           break;
         case XMLHttpRequest.DONE:
-          var movies = JSON.parse(httpRequest.response);
-          dispatch(receiveMovies(movies,options.page));
+          result= JSON.parse(httpRequest.response);
+          dispatch(setNumberOfResult (result.numberOfResult)); 
+          dispatch(receiveMovies(result.movies,options.page));
       }
     };
 

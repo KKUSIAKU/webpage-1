@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 
 import * as  actions from "../../state/actions.js";
 import ArticleCard from "../ArticleCard";
-import PageButton from "../PageButton";
-import style from "./style.scss";
+import Pagination from "../Pagination";
 
 const url = "/videos";
 
@@ -15,14 +14,16 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllMovies.bind(null, url,{page:0})();
+    this.props.fetchAllMovies.bind(null, url, { page: 0 })();
   }
 
   render() {
-    let movies = this.props.movies[this.props.page],ln;
-    
+    var movies = this.props.movies[this.props.page], 
+      numberOfResult = this.props.numberOfResult,
+      ln;
+
     movies = movies ? movies : [];
-    ln = movies.length; 
+    ln = numberOfResult ? numberOfResult :movies.length;
 
     return (
       <main>
@@ -34,11 +35,7 @@ class Main extends React.Component {
             </div>)
           }
         </div>
-        <div className="search-pages">
-          <PageButton page={1}/>
-          <PageButton page={2}/>
-          <PageButton page={3}/>
-        </div>
+        <Pagination />
       </main>
     );
   }
@@ -46,10 +43,11 @@ class Main extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  let {movies, page} = state; 
+  let { movies, page, numberOfResult } = state;
   return {
     page,
     movies,
+    numberOfResult
   };
 };
 

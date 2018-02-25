@@ -1,7 +1,6 @@
 import React from "react";
 import Brand from "../Brand";
 import Navigation from "../Navigation"; 
-import style from "./style.scss";
 
 const justifyContent = "center";
 

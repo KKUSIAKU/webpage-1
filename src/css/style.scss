@@ -1,1 +1,9 @@
 @import "variables"; 
+@import "pageButton";
+@import "articleCard"; 
+@import "footer";
+@import "main"; 
+
+body{
+  padding-top:5rem; 
+}

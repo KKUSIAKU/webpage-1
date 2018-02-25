@@ -5,10 +5,15 @@ import rootReducer from "./reducers";
 import CONSTANTS from "../public/constants.js"; 
 
 const url = "/videos"; 
-//const movies = CONSTANTS.MOVIES; 
-const movies = {};
-const page = 0; 
-const store = createStore(rootReducer, {movies,page}, applyMiddleware(thunk)); 
+const initialState = {
+  movies: {},
+  page:0,
+  numberOfPages:4,
+  numberOfResult:0
+};
+//const movies = {};
+
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk)); 
 
 //store.dispatch(fetchAllMovies(url)); 
 
