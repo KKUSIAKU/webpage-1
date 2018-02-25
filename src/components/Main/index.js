@@ -18,10 +18,12 @@ class Main extends React.Component {
   }
 
   render() {
-    let movies = this.props.movies[this.props.page], ln;
+    var movies = this.props.movies[this.props.page], 
+      numberOfResult = this.props.numberOfResult,
+      ln;
 
     movies = movies ? movies : [];
-    ln = movies.length;
+    ln = numberOfResult ? numberOfResult :movies.length;
 
     return (
       <main>
@@ -41,10 +43,11 @@ class Main extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  let { movies, page } = state;
+  let { movies, page, numberOfResult } = state;
   return {
     page,
     movies,
+    numberOfResult
   };
 };
 
