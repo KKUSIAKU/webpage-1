@@ -1,6 +1,7 @@
-function numberOfPages(state=null, action){
+import { ACTIONS, DEFAULT_STATE } from "../config"; 
+function numberOfPages(state = DEFAULT_STATE.NUMBER_OF_PAGES, action){
   switch (action.type) {
-    case "SET-NUMBER-OF-PAGE":
+    case ACTIONS.SET_NUMBER_OF_PAGE:
       return action.numberOfpage;   
     default:
       return state; 

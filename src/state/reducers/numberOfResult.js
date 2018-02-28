@@ -1,6 +1,8 @@
-function numberOfResult(state=0, action){
+import { ACTIONS, DEFAULT_STATE }  from "../config"; 
+
+function numberOfResult(state = DEFAULT_STATE.NUMBER_OF_RESULT, action){
   switch (action.type) {
-    case "GET-NUMBER-OF-RESULT":
+    case ACTIONS.SET_NUMBER_OF_RESULT:
       return action.numberOfResult;   
     default:
       return state; 
