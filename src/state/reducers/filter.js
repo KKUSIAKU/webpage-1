@@ -1,9 +1,9 @@
 
-import { DEFAULT_STATE } from "../config";
+import {ACTIONS, DEFAULT_STATE } from "../config";
 
 function filter(state=DEFAULT_STATE.FILTER, action){
   switch(action.type){
-    case "SET-FILTER":
+    case ACTIONS.SET_FILTER:
       return action.filter; 
     default:
       return state; 
