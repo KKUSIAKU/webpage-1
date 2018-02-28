@@ -2,6 +2,7 @@ node_modules
 notes.txt
 checker.js
 eslint.note.txt
+db.config.js
 jest.note.txt
 server.note.txt
 grunt.note.txt

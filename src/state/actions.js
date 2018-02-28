@@ -1,28 +1,31 @@
+import { ACTIONS } from "./config"; 
+
 import store from "./store.js";
+
 
 function setPage(page){
   return {
-    type:"SET-PAGE", 
+    type:ACTIONS.SET_PAGE, 
     page
   };
 }
 
 function setNumberOfResult(numberOfResult){
   return {
-    type:"GET-NUMBER-OF-RESULT", 
+    type:ACTIONS.SET_NUMBER_OF_RESULT, 
     numberOfResult
   };
 }
 
 function requestMovies() {
   return {
-    type: "REQUEST-MOVIES",
+    type: ACTIONS.REQUEST_MOVIES,
   };
 }
 
 function receiveMovies(data,page){
   return {
-    type:"RECEIVE-MOVIES", 
+    type:ACTIONS.RECEIVE_MOVIES, 
     data,
     page
   };
@@ -66,12 +69,6 @@ export function fetchAllMovies(url, options) {
 }
 
 
-export function setPage(page){
-  // page is a positive number
-  return {
-    type:"SET-PAGE", 
-    page
-  };
-}
+
 
 // fetchMovies;

@@ -1,6 +1,6 @@
 function numberOfResult(state=0, action){
   switch (action.type) {
-    case "GET-NUMBER-OF-RESULT":
+    case "SET-NUMBER-OF-RESULT":
       return action.numberOfResult;   
     default:
       return state; 

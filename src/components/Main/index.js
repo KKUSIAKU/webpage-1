@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import * as  actions from "../../state/actions.js";
 import ArticleCard from "../ArticleCard";
 import Pagination from "../Pagination";
+import Filter from "../Filter";
 
 const url = "/videos";
 
@@ -27,6 +28,7 @@ class Main extends React.Component {
 
     return (
       <main>
+        <Filter/>
         <p className="text-info px-5">{`${ln} results`} </p>
         <div className="d-flex flex-wrap justify-content-center">
           {movies.map((movie, index) =>
