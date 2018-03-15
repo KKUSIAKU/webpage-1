@@ -19,11 +19,13 @@ class Main extends React.Component {
   }
 
   render() {
-    var movies = this.props.movies[this.props.page], 
+    //movies = this.props.movies[this.props.page],
+    var movies = this.props.movies, 
       numberOfResult = this.props.numberOfResult,
       ln;
 
     movies = movies ? movies : [];
+
     ln = numberOfResult ? numberOfResult :movies.length;
 
     return (
@@ -45,9 +47,13 @@ class Main extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  let { movies, page, numberOfResult } = state;
+  let { movies, page, numberOfResult, filter } = state;
+  
+  movies = movies[page];
+  if (filter != "All")
+    movies = movies.filter( data => data.genres.includes(filter))
+
   return {
-    page,
     movies,
     numberOfResult
   };

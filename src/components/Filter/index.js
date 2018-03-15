@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import DropDownList from "../DropDownList";
 
+import * as  actions from "../../state/actions.js";
 
 const myList = ["item1", "item2", "item3", "item4"]; 
 const myLabel = "Genre"; 
@@ -30,7 +32,9 @@ class Filter extends React.Component {
   }
 
   selectFiltersOnClick(e) {
-    this.setFilter(e.target.innerHTML);
+    let filter = e.target.innerHTML;
+    this.setFilter(filter);
+    this.props.setFilter(filter);
   }
 
   render() {
@@ -52,4 +56,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps,null)(Filter); 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actions, dispatch);
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Filter); 

@@ -1,7 +1,7 @@
 import {ACTIONS, DEFAULT_STATE } from "../config";
 
 function filters(state = DEFAULT_STATE.FILTERS, action) {
-  let filters = [];
+  let filters = ["All"];
   switch (action.type) {
     case ACTIONS.RECEIVE_MOVIES:
       action.data.forEach( function(data){
