@@ -10,6 +10,8 @@ function setPage(page){
   };
 }
 
+
+
 function setNumberOfResult(numberOfResult){
   return {
     type:ACTIONS.SET_NUMBER_OF_RESULT, 
@@ -68,6 +70,12 @@ export function fetchAllMovies(url, options) {
   };
 }
 
+export function setFilter(filter){
+  return {
+    type:ACTIONS.SET_FILTER,
+    filter
+  };
+}
 
 
 
