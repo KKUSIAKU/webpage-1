@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import DropDownList from "../DropDownList";
+
 
 const myList = ["item1", "item2", "item3", "item4"]; 
 const myLabel = "Genre"; 
@@ -11,7 +13,7 @@ class Filter extends React.Component {
     super(props);
     
     this.state = {
-      filter: myList[0],
+      filter: this.props.filters[0] || "undefined",
     };
     
     this.list = myList; 
@@ -36,7 +38,7 @@ class Filter extends React.Component {
       <div className="filter-container d-flex px-3 justify-content-between">
         <div className="filter d-flex">
           <div id="genre-filter" className="mx-2" onClick={this.selectFiltersOnClick}>
-            <DropDownList label={myLabel} filter={this.state.filter} list={myList}/>
+            <DropDownList label={myLabel} filter={this.state.filter} list={this.props.filters}/>
           </div>
         </div>
       </div>
@@ -44,4 +46,10 @@ class Filter extends React.Component {
   }
 }
 
-export default Filter; 
+const mapStateToProps = (state) => {
+  return {
+    filters:state.filters
+  };
+};
+
+export default connect(mapStateToProps,null)(Filter); 

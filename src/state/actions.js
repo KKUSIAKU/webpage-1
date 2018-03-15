@@ -27,7 +27,7 @@ function receiveMovies(data,page){
   return {
     type:ACTIONS.RECEIVE_MOVIES, 
     data,
-    page
+    page,
   };
 }
 
