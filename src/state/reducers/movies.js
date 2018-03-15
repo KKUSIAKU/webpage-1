@@ -9,8 +9,7 @@ function movies(state = DEFAULT_STATE.MOVIES, action) {
     case ACTIONS.RECEIVE_MOVIES:
       console.log("received movies data");
       newState= Object.assign({}, state); 
-      newState[action.page] = action.data; 
-      
+      newState[action.page] = action.data;     
       return newState;
     case ACTIONS.REQUEST_MOVIES_FAILED:
       console.log("movies request failed");

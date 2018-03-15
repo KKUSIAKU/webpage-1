@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.set("port", (process.env.PORT || 5000));
+app.set("PORT", (process.env.PORT || 8005));
 
 MongoClient.connect(dbConfig.uri, function (err, database) {
   
@@ -17,9 +17,9 @@ MongoClient.connect(dbConfig.uri, function (err, database) {
 
   require("./api")(app, database); 
 
-  app.listen(app.get("port"), function () {
+  app.listen(app.get("PORT"), function () {
     if (process.env.NODE_ENV !== "production") {
-      console.log("app listent on", app.get("port"));
+      console.log("app listent on", app.get("PORT"));
     }
   });
   
