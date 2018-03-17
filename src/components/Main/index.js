@@ -6,6 +6,7 @@ import * as  actions from "../../state/actions.js";
 import ArticleCard from "../ArticleCard";
 import Pagination from "../Pagination";
 import Filter from "../Filter";
+import SearchForm from "../SearchForm";
 
 const url = "/videos";
 
@@ -30,6 +31,7 @@ class Main extends React.Component {
 
     return (
       <main>
+        <SearchForm/>
         <Filter/>
         <p className="text-info px-5">{`${ln} results`} </p>
         <div className="d-flex flex-wrap justify-content-center">
