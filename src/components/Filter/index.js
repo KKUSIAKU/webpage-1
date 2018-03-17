@@ -39,7 +39,7 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <div className="filter-container d-flex px-3 justify-content-between">
+      <div className="filter-container d-flex p-3 justify-content-between">
         <div className="filter d-flex">
           <div id="genre-filter" className="mx-2" onClick={this.selectFiltersOnClick}>
             <DropDownList label={myLabel} filter={this.state.filter} list={this.props.filters}/>
