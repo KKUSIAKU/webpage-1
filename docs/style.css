@@ -22,13 +22,23 @@
 body {
   padding-top: 5rem; }
 
-#movies-search-container {
+/*
+#movies-search-container{
   box-sizing: border-box;
-  height: 100px; }
+  height: 100px;
+}
 
-#search-icon {
-  left: -30px;
-  top: 25%; }
+#search-icon{
+  left:-30px;
+  top:25%;
+}
+*/
+.search-form {
+  height: 50px; }
+
+.search-form-icon {
+  width: 50px;
+  font-size: 25px; }
 
 .visuallyhidden {
   border: 0;
