@@ -1,7 +1,9 @@
 var hompePage = require("./routes/homepage.js"); 
-var videoRoutes = require("./routes/videoRoutes.js");
+var videoRoute = require("./routes/videoRoutes.js");
+var searchRoute = require("./routes/search.js");
 
 module.exports = function (app, database){
   hompePage(app); 
-  videoRoutes(app, database); 
+  videoRoute(app, database); 
+  searchRoute(app,database);
 }; 

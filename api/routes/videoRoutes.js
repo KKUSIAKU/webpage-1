@@ -28,13 +28,5 @@ module.exports = function (app, database) {
         console.log("error in movies fetching promise chain", err.message);
       });
 
-    /*cursor.toArray(function (err, movies) {
-      result = {
-        movies,
-        page,
-        results: limit
-      };
-      res.json(movies);
-    });*/
   });
 };
