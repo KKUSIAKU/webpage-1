@@ -6,11 +6,11 @@ import Navigation from "../Navigation";
 const justifyContent = "end"; 
 
 const headerLinks = [
-  { href: "#", label: "HOME" },
-  { href: "#genre", label: "GENRE" },
-  { href: "#mycourses", label: "MY VIEWS" },
-  { href: "#sign-in", label: "LOG IN" },
-  { href: "#sign-up", label: "SIGN UP" },
+  { href: "", label: "HOME" },
+  { href: "genre", label: "GENRE" },
+  { href: "mycourses", label: "MY VIEWS" },
+  { href: "sign-in", label: "LOG IN" },
+  { href: "sign-up", label: "SIGN UP" },
 ];
 const headerMenuId = "nav-header";
 

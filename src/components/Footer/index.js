@@ -15,7 +15,7 @@ const footerMenuId = "footer";
 const footerToggeable = false; 
 
 const Footer = () => (
-  <footer className="page-footer">
+  <footer className="page-footer bg-light py-5">
     <div id="page-footer-container">
       <div className="container-fluid">
         <div className="row row-border justify-content-between">
