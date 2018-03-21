@@ -1,20 +1,19 @@
 import React from "react";
 
-
-
 function getSearchFormValue() {
   return document.getElementById("movies-search").value;
 }
 
 function search() {
-  var search;
+  var search,httpRequest;
 
   var url = "/videos/search";
 
   search = getSearchFormValue();
   
   console.log(search ? search : "oops no value");
-  var httpRequest = new XMLHttpRequest();
+  
+  httpRequest = new XMLHttpRequest();
 
   httpRequest.onreadystatechange = function () {
     var result;
